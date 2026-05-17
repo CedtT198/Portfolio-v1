@@ -43,6 +43,7 @@ export function Footer() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   aria-label={social.label}
+                  target="_blank" rel="noopener noreferrer"
                 >
                   <Icon className="w-4 h-4" />
                 </motion.a>

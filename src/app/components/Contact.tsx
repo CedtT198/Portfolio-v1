@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 import { Send } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 export function Contact() {
   const [focused, setFocused] = useState<string | null>(null);
@@ -11,10 +12,25 @@ export function Contact() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+
+    try {
+      await emailjs.send(
+        "service_osj1cwr",
+        "template_eted2na",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        "2CDFiMeC6FAjZ-35J"
+      );
+      alert("Message sent!");
+    } catch (error) {
+      alert("Error, please try again.");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

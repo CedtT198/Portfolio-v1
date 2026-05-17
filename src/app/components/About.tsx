@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useRef } from "react";
 import { Download, Facebook, Linkedin, Mail } from "lucide-react";
-import { SiFacebook, SiGmail, SiLinkerd, SiWhatsapp } from "react-icons/si";
+// import { SiFacebook, SiGmail, SiLinkerd, SiWhatsapp } from "react-icons/si";
 import { socials } from "./ui/socials"
 
 export function About() {
@@ -61,7 +61,8 @@ export function About() {
               <motion.a
                 content="Download resume"
                 key="Download resume"
-                href=""
+                href="/CV-cedric-tiavina.pdf"
+                download="CV-Cedric-Tiavina.pdf"
                 className="mt-10 w-50 h-15 bg-white text-black border border-gray-800 dark:border-neutral-800 flex items-center justify-center hover:hover:bg-white hover:text-black dark:hover:text-black transition-all duration-300"
                 whileHover={{ scale: 1.1, rotate: 0 }}
                 whileTap={{ scale: 0.95 }}
@@ -89,7 +90,7 @@ export function About() {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                     aria-label={social.label}
-                    // style={{color: social.color}}
+                    target="_blank" rel="noopener noreferrer"
                   >
                     <Icon className="w-4 h-4" />
                   </motion.a>
